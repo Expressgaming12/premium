@@ -1,0 +1,852 @@
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>T33n Leaks Age 13-17</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            background-color: #121212;
+            color: #e0e0e0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+        .sidebar {
+            width: 250px; /* Fixed width for the sidebar */
+            height: 100%;
+            background-color: #1e1e1e;
+            overflow-x: hidden;
+            overflow-y: auto; /* Enable vertical scrolling */
+            transition: transform 0.5s; /* Use transform for smooth transition */
+            padding-top: 70px; /* Increased padding to start categories lower */
+            position: fixed;
+            z-index: 2;
+            top: 0;
+            left: 0;
+            transform: translateX(-250px); /* Initially hide the sidebar */
+        }
+        .sidebar.open {
+            transform: translateX(0); /* Show the sidebar when open */
+        }
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            font-size: 20px; /* Updated font size */
+            color: #e0e0e0;
+            display: block;
+            transition: 0.3s;
+            margin-bottom: 20px; /* Added margin for spacing */
+        }
+        .sidebar a:hover {
+            background-color: #363636;
+            color: #ffffff;
+        }
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+        }
+        .openbtn:hover {
+            background-color: #444;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+            transition: margin-left 0.5s;
+            margin-left: 0; /* Initial position */
+        }
+
+        .sidebar.open + .content {
+            margin-left: 250px; /* Adjust this value to match the sidebar width */
+        }
+
+        .hidden {
+            display: none;
+        }
+        .referral-button {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            background-color: #424242;
+            color: #121212;
+            border: none;
+            border-radius: 6px;
+            padding: 8px 10px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .referral-button:hover {
+            background-color: #9b59b6;
+        }
+        .info {
+            position: absolute;
+            bottom: 40px;
+            left: 10px;
+            color: #424242;
+        }
+        .info-card {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .info-card h2 {
+            margin-top: 0;
+            color: #949494;
+            font-size: 28px;
+        }
+        .info-card p {
+            margin: 10px 0;
+            font-size: 22px;
+        }
+        .info-card span {
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+        .info-card a {
+            color: #949494;
+            text-decoration: underline;
+        }
+        .info-card a:hover {
+            color: #949494;
+        }
+        .invite-summary {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        .invite-link {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 10px;
+            background-color: #4d4d4d7e;
+            padding: 5px 10px;
+            border-radius: 6px;
+            color: #121212;
+            display: inline-block;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .invite-link:hover {
+            background-color: #4d4d4d7e;
+        }
+        .copy-button {
+            margin-left: 10px;
+            padding: 8px 10px;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #424242;
+            color: #ffffff;
+            border: none;
+            border-radius: 1px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .copy-button:hover {
+            background-color: #424242;
+        }
+        .invite-now-button {
+            margin-left: 10px;
+            padding: 8px 10px;
+            font-size: 14px;
+            cursor: pointer;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .invite-now-button:hover {
+            background-color: darkred;
+        }
+        .video-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 20px;
+            align-items: center;
+        }
+        .video-placeholder {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            background-color: #2c2c2c;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e0e0e0;
+            font-size: 18px;
+            object-fit: contain;
+        }
+        .buy-now-button {
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .buy-now-button:hover {
+            background-color: #006400;
+        }
+        @media (max-width: 768px) {
+            .sidebar a {
+                font-size: 20px;
+            }
+            .openbtn {
+                font-size: 18px;
+                padding: 8px 12px;
+            }
+            .content {
+                padding: 10px;
+            }
+            .info-card h2 {
+                font-size: 24px;
+            }
+            .info-card p {
+                font-size: 18px;
+            }
+            .invite-summary {
+                font-size: 20px;
+            }
+            .invite-link {
+                font-size: 16px;
+            }
+            .copy-button {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+            .invite-now-button {
+                font-size: 12px;
+                padding: 6px 8px;
+            }
+            .video-placeholder {
+                font-size: 16px;
+            }
+            .buy-now-button {
+                font-size: 16px;
+                padding: 8px 16px;
+            }
+        }
+        @media (min-width: 768px) {
+            .video-placeholder {
+                max-width: 600px; /* Adjust the max-width as needed */
+            }
+        }
+        #inviteListDetails li {
+            font-size: 18px; /* Increase the font size */
+            margin-bottom: 10px; /* Add some spacing between list items */
+        }
+        @media (min-width: 768px) {
+            #inviteListDetails li {
+                font-size: 22px; /* Increase the font size for desktop */
+            }
+        }
+        @media (max-width: 768px) {
+            .sidebar a {
+                margin-bottom: 10px; /* Adjust this value to change the margin-bottom for mobile devices */
+            }
+        }
+    </style>
+<style type="text/css" id="operaUserStyle"></style></head>
+<body>
+    <div id="mySidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="#" onclick="showContent('info')">Info</a>
+        <a href="#" onclick="showContent('free-preview')">Free Preview</a>
+        <a href="#" onclick="showContent('get-more-videos')">Get More Videos</a>
+        <a href="#" onclick="showContent('invites-counting')">Invites Counting</a>
+        <a href="#" onclick="showContent('get-fast-invites')">Get Fast Invites</a>
+        <a href="#" onclick="showContent('tier-1')">Tier 1</a>
+        <a href="#" onclick="showContent('tier-2')">Tier 2</a>
+        <a href="#" onclick="showContent('tier-3')">Tier 3</a>
+        <a href="#" onclick="showContent('tier-4')">Tier 4</a>
+        <a href="#" onclick="showContent('tier-5')">Tier 5</a>
+    </div>
+
+    <button class="openbtn" onclick="openNav()">☰</button>
+
+    <div class="content">
+        <div id="info" class="hidden">
+            <h1 style="text-align: center; color: #ff0000">User Information</h1>
+            <div class="info-card">
+                <p>Username: <span id="username">Random151424</span></p>
+                <p>User ID: <span id="userId">2156510</span></p>
+                <p>Tier: <span id="tier">None</span></p>
+                <p>Invites: <span id="invites">2</span></p>
+            </div>
+            <div class="info-card">
+                <table style="width: 100%; text-align: center;">
+                    <tbody><tr>
+                        <td style="font-size: 22px;">If you don't know how to view more content, click here: <a href="#" onclick="showContent('get-more-videos')">Get More Videos</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-size: 22px;">If you want to check your invites, click here: <a href="#" onclick="showContent('invites-counting')">Invites Counting</a></td>
+                    </tr>
+                </tbody></table>
+            </div>
+            <div class="info-card invite-summary">
+                <p>You have 2 invites, you need 4 more invites to reach Tier 1.</p>
+                <p>buy now</p>
+                <p>
+                    <span id="inviteLink" class="invite-link">Stoff81.site</span>
+                    <button class="copy-button" onclick="copyInviteLink()">Copy</button>
+                </p>
+            </div>
+        </div>
+        <div id="free-preview" class="">
+            <h1 style="text-align: center; color: #fc0707">Free Preview</h1>
+            <p style="text-align: center;">
+            <a id="inviteLink" class="invite-link" href="#" target="_blank"></a>
+            <button class="copy-button" onclick="copyInviteLink()">Copy</button>
+            <button class="generate-button" onclick="generateInviteLink()">Generate Invite Link</button>
+        </p>
+            <p style="text-align: center; font-size: 18px; font-weight: bold;">
+                👆CLICK ABOVE TO COPY THE LINK👆
+            </p>
+            <p style="text-align: center; font-size: 18px; font-weight: bold;">
+                This is just 1% of what we have, if you want to see more content you can share the link or check
+                <a href="#" onclick="showContent('get-more-videos')" style="color: #ff0000; text-decoration: underline;">Get More Videos</a>
+            </p>
+            <p style="text-align: center; font-size: 18px; font-weight: bold;">
+                questions about the website you can contact me in telegram: 
+                
+                <a href="https://t.me/Stoff81" target="_blank" style="color: #f00404; text-decoration: underline;">@Stoff81</a> click to contact
+            </p>
+            <p style="text-align: center; font-size: 18px; font-weight: bold;">
+                click the menu in the left side to open the website menu to get more information
+                
+            </p><p style="text-align: center; font-size: 18px; font-weight: bold;">
+                MSG ME ONLY SERIOUS BUYERS
+                <a href="https://t.me/Stoff81" target="_blank" style="color: #f00404; text-decoration: underline;">BUY</a>
+            <div class="video-grid" id="free-preview-videos"><video class="video-placeholder" controls=""><source src="https://cdn..com/attachments/1263815037903048727/1263815193729957900/received_2793286114323955.mp4?ex=669b9b1e&amp;is=669a499e&amp;hm=6f4d91a3998aeffa5f43c64910bcc0ce36d8936d1bd1921da6af1933ddb2461a&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815203615674450/4video_2022-09-22_00-41-08_ev.mp4?ex=669b9b21&amp;is=669a49a1&amp;hm=6bc4ff72dca82b4e4c8ea362f80f377613e38ea596b37d5340cc0283ddfddc5c&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815212960841839/1_5181501558675734854.mp4?ex=669b9b23&amp;is=669a49a3&amp;hm=c2102fe54dd1ad1b79336fc8a6d4a24b28df337e6231f3e6e0fc259b5570d777&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815222003765321/1ac08f04-1584-472a-88ef-1702db352f72.mp4?ex=669b9b25&amp;is=669a49a5&amp;hm=30efc388a15d38b5c4e488491dc7030c0147dbc541d99d21ef77b3594aae4809&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815242660577290/9video_2023-03-04_10-13-43_ev.mp4?ex=669b9b2a&amp;is=669a49aa&amp;hm=f097fe71247e7f3100dd4070aab504aa2e06ff791b8c141119a13310da725e19&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815260670918727/14vIMG_8790_ev.mp4?ex=669b9b2e&amp;is=669a49ae&amp;hm=8e28afe678c3c51279691bd60c916a859f4065bbb90a537da8ecbb962b9ab421&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815264966021201/13video_2022-09-22_00-22-57_ev.mp4?ex=669b9b2f&amp;is=669a49af&amp;hm=1f7d4279db3b8efd50886f0081989357205028dbb650562807410c9b9f841517&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815275284008972/56y6.mp4?ex=669b9b32&amp;is=669a49b2&amp;hm=adbb4a36701f6724961e32c162ad06cf00864166b6b15be0d96a3cabc451085f&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815286679670804/78iu6.mp4?ex=669b9b34&amp;is=669a49b4&amp;hm=07ed079c3b0f57bba6d79958b56aaf8b9437d11c29bc39b6f8e3aedc254efef5&amp;" type="video/mp4">Your browser does not support the video tag.</video><video class="video-placeholder" controls=""><source src="https://cdn.discordapp.com/attachments/1263815037903048727/1263815300378263602/received_140057394286941.mp4?ex=669b9b38&amp;is=669a49b8&amp;hm=1ee9066a0e1b10359be641339f64bda3de3e1550e4b4570511e7b7dd37524a3f&amp;" type="video/mp4">Your browser does not support the video tag.</video></div>
+            
+        </div>
+        <div id="get-more-videos" class="hidden">
+            <h1 style="text-align: center; color: #949494">Get More Videos</h1>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100%; flex-direction: column;">
+                <div style="text-align: center; font-size: 24px; background-color: #1e1e1e; padding: 20px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); margin-bottom: 20px; width: 90%;">
+                    Hello <span id="usernamePlaceholder">Random</span>, you can get more videos by buying instant access or inviting others.
+                </div>
+                <div style="text-align: center; font-size: 24px; background-color: #1e1e1e; padding: 20px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); margin-bottom: 20px; width: 90%;">
+                    <table style="width: 100%; text-align: center;">
+                        <tbody><tr>
+                            <td style="font-size: 24px;">
+                                <span style="color: lightgreen;">Tier 1</span> = 20$ or 4 invites
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 24px;">
+                                More good teen and cp videos
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="buy-now-button" onclick="window.open('https://t.me/Stoff81', '_blank')"></button>
+                                <button class="invite-now-button" onclick="copyInviteLink()">Invite Now</button>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div style="text-align: center; font-size: 24px; background-color: #1e1e1e; padding: 20px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); margin-bottom: 20px; width: 90%;">
+                    <table style="width: 100%; text-align: center;">
+                        <tbody><tr>
+                            <td style="font-size: 24px;">
+                                <span style="color: rgb(0, 140, 255);">Tier 2</span> = 30$ or 10 invites
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 24px;">
+                                Best teen and cp videos
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="buy-now-button" onclick="window.open('https://t.me/Stoff81', '_blank')">Buy Now</button>
+                                <button class="invite-now-button" onclick="copyInviteLink()">Invite Now</button>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div style="text-align: center; font-size: 24px; background-color: #1e1e1e; padding: 20px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); margin-bottom: 20px; width: 90%;">
+                    <table style="width: 100%; text-align: center;">
+                        <tbody><tr>
+                            <td style="font-size: 24px;">
+                                <span style="color: rgb(255, 196, 0);">Tier 3</span> = 50$ or 20 invites
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 24px;">
+                                160 GB folder 3000+ BEST teen and cp videos
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="buy-now-button" onclick="window.open('https://t.me/Stoff81', '_blank')">Buy Now</button>
+                                <button class="invite-now-button" onclick="copyInviteLink()">Invite Now</button>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div style="text-align: center; font-size: 24px; background-color: #1e1e1e; padding: 20px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); margin-bottom: 20px; width: 90%;">
+                    <table style="width: 100%; text-align: center;">
+                        <tbody><tr>
+                            <td style="font-size: 24px;">
+                                <span style="color: rgb(255, 0, 200);">Tier 4</span> = 80$ or 40 invites
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 24px;">
+                                1TB folder of teen and cp video age 5-17 16000+ videos + VIP group access
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="buy-now-button" onclick="window.open('https://t.me/Stoff81', '_blank')">Buy Now</button>
+                                <button class="invite-now-button" onclick="copyInviteLink()">Invite Now</button>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+                <div style="text-align: center; font-size: 24px; background-color: #1e1e1e; padding: 20px; border-radius: 12px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); width: 90%;">
+                    <table style="width: 100%; text-align: center;">
+                        <tbody><tr>
+                            <td style="font-size: 24px;">
+                                <span style="color: rgb(229, 255, 0);">Tier 5</span> = 120$ or 80 invites
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: 24px;">
+                                Everything above and 4tb of teen and cp content age 5- 17 + VIP group access <br>
+                                (teenn,tod,mom and son,rape,cp,incest,and much more) <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="buy-now-button" onclick="window.open('https://t.me/Stoff81', '_blank')">Buy Now</button>
+                                <button class="invite-now-button" onclick="copyInviteLink()">Invite Now</button>
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        </div>
+        <div id="invites-counting" class="hidden">
+            <div id="inviteDetails" class="info-card" style="height: 100vh; overflow-y: auto;">
+                <h2>Invite List</h2>
+                <ul id="inviteListDetails"></ul>
+            </div>
+        </div>
+        <div id="get-fast-invites" class="hidden">
+            <h1 style="text-align: center; color: #949494">Get Fast Invites</h1>
+            <p style="text-align: center; font-weight: bold;">
+                SHARE YOUR INVITE LINK TO YOUR FRIENDS,<br>
+                OR SPAM YOUR INVITE IN REDDIT OR TWITTER WITH KEY WORDS "teen leak" "teen nudes",<br>
+                ONCE THERE IS SOMEONE VISIT OUR WEBSITE BY YOUR INVITE LINK,<br>
+                YOU WILL GET INVITES ADDING!!!
+            </p>
+            <div style="text-align: center;">
+                <button class="invite-now-button" onclick="copyInviteLink()">Invite Now</button>
+            </div>
+        </div>
+        <div id="tier-1" class="hidden">
+            <h1 style="text-align: center; color: #ffffff">Tier 1</h1>
+            <div class="video-grid" id="tier-1-videos"></div>
+        </div>
+        <div id="tier-2" class="hidden">
+            <h1 style="text-align: center; color: #ffffff">Tier 2</h1>
+            <div class="video-grid" id="tier-2-videos"></div>
+        </div>
+        <div id="tier-3" class="hidden">
+            <h1 style="text-align: center; color: #ffffff">Tier 3</h1>
+            <div class="video-grid" id="tier-3-videos"></div>
+        </div>
+        <div id="tier-4" class="hidden">
+            <h1 style="text-align: center; color: #ffffff">Tier 4</h1>
+            <div class="video-grid" id="tier-4-videos"></div>
+            <p style="text-align: center; color: #ffffff; margin-top: 20px;">
+                <a href="https://t.me/+_m4J6tacdxFmZTI0" target="_blank" style="color: #00f; text-decoration: underline;">Click here for the link</a>
+            </p>
+        </div>
+        <div id="tier-5" class="hidden">
+            <h1 style="text-align: center; color: #ffffff">Tier 5</h1>
+            <div class="video-grid" id="tier-5-videos"></div>
+            <p style="text-align: center; color: #ffffff; margin-top: 20px;">
+                <a href="https://t.me/+OjI0JQWK7Ao2OTlk" target="_blank" style="color: #00f; text-decoration: underline;">Click here for the link</a>
+            </p>
+        </div>
+        <div id="welcome" class="hidden">
+            <h1>Welcome to the Dashboard</h1>
+            <p>Select a category from the sidebar to get started.</p>
+        </div>
+        <style>
+            .hidden-element {
+                display: none;
+            }
+        </style>
+        <div class="info hidden-element">
+            <p>Invited users: <span id="invitedUsersCount">0</span></p>
+        </div>
+        
+        <button class="referral-button hidden-element" id="referralButton" onclick="copyReferralCode()">Stoff81.site</button>
+    </div>
+
+    <script>
+        const videoSources = {
+            'free-preview': [
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854663124226118/0720xz.mp4?ex=669f6333&is=669e11b3&hm=78fb63f3828c8f1de14db84bc0e878c83b4a8fe7cd6b81a5a9a350d46403f2ef&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854663476285533/1515.mp4?ex=669f6333&is=669e11b3&hm=b42f59065c016f7fcdb4d569dcb1af2c5d340e04663cd25ae4118f3f3bdf330a&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854662666784818/515.MP4?ex=669f6333&is=669e11b3&hm=99b09e0afe348040b30347bfc4e89302e4fa554895883d12c48e65cf39d0d25a&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854664298364958/11515.mp4?ex=669f6333&is=669e11b3&hm=329b91043d682dcd97e04facc842dc38fd6f49f14a3b1a1693b66e563abf84da&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854736721543232/0720111.mp4?ex=669f6345&is=669e11c5&hm=74d1d039d2be1405438c6a8403b4adbb677449a5b838160ecef4186fca15e2f1&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854664633913425/072014.mp4?ex=669f6333&is=669e11b3&hm=dfb80505409ea602c483ff0c789838d652a2bdb43713585417e303a3510a0a63&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854736352448544/072022.mp4?ex=669f6345&is=669e11c5&hm=a1d858febf48e46db3876b018aa65bd45e7e371332bda7ee4f4a310654301e77&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854737044635700/07201515.mp4?ex=669f6345&is=669e11c5&hm=1b967337ed7e5ff7980210be7defe50797010878b8b8453712d4df50d620a534&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854737447030824/072015151.mp4?ex=669f6345&is=669e11c5&hm=d5e43c0c1f2bdfb75da55f9a33368436b698489ff4ef4d3e13c8b445de1f3048&',
+                'https://cdn.discordapp.com/attachments/1264852668283752542/1264854663891779675/07201.mp4?ex=669f6333&is=669e11b3&hm=1af95143965156464a58bc0d5901ec43f6a95c3f7855f3db7a406be1f9733b25&',
+                // ... other free preview video sources ...
+            ],
+            'tier-1': [
+                'https://videos.pexels.com/video-files/27268789/12106223_480_360_12fps.mp4',
+                'https://videos.pexels.com/video-files/27268788/12106216_352_640_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268782/12106220_640_352_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268781/12106221_720_1280_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268779/12106214_320_240_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268778/12106222_180_320_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268777/12106215_360_392_25fps.mp4',
+                'https://videos.pexels.com/video-files/27268776/12106219_352_640_30fps.mp4',
+                // ... other tier 1 video sources ...
+            ],
+            'tier-2': [
+                'https://videos.pexels.com/video-files/27268943/12106277_638_360_15fps.mp4',
+                'https://videos.pexels.com/video-files/27268938/12106273_928_540_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268937/12106275_272_480_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268936/12106278_256_480_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268934/12106274_360_640_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268933/12106279_240_432_30fps.mp4',
+                'https://videos.pexels.com/video-files/27268932/12106276_626_360_29fps.mp4',
+                'https://videos.pexels.com/video-files/27268931/12106271_240_432_30fps.mp4',
+                // ... other tier 2 video sources ...
+            ],
+            'tier-3': [
+                'https://videos.pexels.com/video-files/27269039/12106302_304_672_30fps.mp4',
+                'https://videos.pexels.com/video-files/27269038/12106304_176_144_15fps.mp4',
+                'https://videos.pexels.com/video-files/27269037/12106308_320_568_25fps.mp4',
+                'https://videos.pexels.com/video-files/27269036/12106310_264_480_30fps.mp4',
+                'https://videos.pexels.com/video-files/27269035/12106305_568_320_30fps.mp4',
+                'https://videos.pexels.com/video-files/27269034/12106309_176_144_15fps.mp4',
+                'https://videos.pexels.com/video-files/27269033/12106311_320_240_15fps.mp4',
+                'https://videos.pexels.com/video-files/27269032/12106303_360_640_57fps.mp4',
+                'https://videos.pexels.com/video-files/27269031/12106307_640_360_25fps.mp4',
+                'https://videos.pexels.com/video-files/27269030/12106306_360_636_30fps.mp4',
+                // ... other tier 3 video sources ...
+            ],
+            'tier-4': [
+                'https://example.com/video.mp4',
+                // ... other tier 4 video sources ...
+            ],
+            'tier-5': [
+                'https://example.com/video.mp4',
+                // ... other tier 5 video sources ...
+            ]
+        };
+
+        function openNav() {
+            document.getElementById("mySidebar").classList.add("open");
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").classList.remove("open");
+        }
+
+        function showContent(section) {
+            const sections = ['info', 'free-preview', 'get-more-videos', 'invites-counting', 'get-fast-invites', 'tier-1', 'tier-2', 'tier-3', 'tier-4', 'tier-5', 'welcome'];
+            const invitesRequired = {
+                'tier-1': 4,
+                'tier-2': 10,
+                'tier-3': 20,
+                'tier-4': 40,
+                'tier-5': 80
+            };
+
+            // Check if the section is a tier and if the user has enough invites
+            if (section.startsWith('tier-') && invitesRequired[section] !== undefined) {
+                const userInvites = parseInt(document.getElementById('invites').innerText, 10);
+                if (userInvites < invitesRequired[section]) {
+                    alert(`You need at least ${invitesRequired[section]} invites to access this tier or you can buy it from get more videos page.`);
+                    return;
+                }
+            }
+
+            sections.forEach(sec => {
+                document.getElementById(sec).classList.add('hidden');
+                removeVideos(sec);
+            });
+            document.getElementById(section).classList.remove('hidden');
+            loadVideos(section);
+
+            // Fetch invite details if the section is 'invites-counting'
+            if (section === 'invites-counting') {
+                fetchInviteDetails();
+            }
+
+            // Update invite summary if the section is 'info'
+            if (section === 'info') {
+                updateInviteSummary();
+            }
+        }
+
+        function loadVideos(section) {
+            const videoGrid = document.getElementById(`${section}-videos`);
+            if (videoGrid && videoSources[section]) {
+            // Check if videos are already loaded
+            if (videoGrid.children.length === 0) {
+                videoSources[section].forEach(src => {
+                    const video = document.createElement('video');
+                    video.className = 'video-placeholder';
+                    video.controls = true;
+                    video.loading = 'lazy'; // Add lazy loading attribute
+                    video.innerHTML = `<source src="${src}" type="video/mp4">Your browser does not support the video tag.`;
+                    videoGrid.appendChild(video);
+                });
+             }
+          }
+        }
+        function removeVideos(section) {
+            const videoGrid = document.getElementById(`${section}-videos`);
+            if (videoGrid) {
+                videoGrid.innerHTML = '';
+            }
+        }
+
+        // ... existing functions ...
+
+        // Check the URL hash and show the corresponding content
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showContent(hash);
+            } else {
+                showContent('free-preview'); // Default to free-preview
+            }
+        });
+    </script>
+
+<button onclick="window.open('https://t.me/+7M9viDfn1SkwMzIx', '_blank');" style="position: fixed; bottom: 65px; right: 20px; background-color: #4CAF50; color: white; border: none; padding: 10px 28.5px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; border-radius: 5px; cursor: pointer;">Group</button>
+<button onclick="window.open('https://t.me/Stoff81', '_blank');" style="position: fixed; bottom: 20px; right: 20px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 14px; border-radius: 5px; cursor: pointer;">Buy Now</button>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidebar").classList.add("open");
+        }
+
+        function closeNav() {
+            document.getElementById("mySidebar").classList.remove("open");
+        }
+
+        function showContent(section) {
+            const sections = ['info', 'free-preview', 'get-more-videos', 'invites-counting', 'get-fast-invites', 'tier-1', 'tier-2', 'tier-3', 'tier-4', 'tier-5', 'welcome'];
+            const invitesRequired = {
+                'tier-1': 4,
+                'tier-2': 10,
+                'tier-3': 20,
+                'tier-4': 40,
+                'tier-5': 80
+            };
+
+            // Check if the section is a tier and if the user has enough invites
+            if (section.startsWith('tier-') && invitesRequired[section] !== undefined) {
+                const userInvites = parseInt(document.getElementById('invites').innerText, 10);
+                if (userInvites < invitesRequired[section]) {
+                    alert(`You need at least ${invitesRequired[section]} invites to access this tier or you can buy it from get more videos page.`);
+                    return;
+                }
+            }
+
+            sections.forEach(sec => {
+                document.getElementById(sec).classList.add('hidden');
+                removeVideos(sec);
+            });
+            document.getElementById(section).classList.remove('hidden');
+            loadVideos(section);
+
+            // Fetch invite details if the section is 'invites-counting'
+            if (section === 'invites-counting') {
+                fetchInviteDetails();
+            }
+
+            // Update invite summary if the section is 'info'
+            if (section === 'info') {
+                updateInviteSummary();
+            }
+        }
+
+        function loadVideos(section) {
+            const videoGrid = document.getElementById(`${section}-videos`);
+            if (videoGrid && videoSources[section]) {
+                videoSources[section].forEach(src => {
+                    const video = document.createElement('video');
+                    video.className = 'video-placeholder';
+                    video.controls = true;
+                    video.innerHTML = `<source src="${src}" type="video/mp4">Your browser does not support the video tag.`;
+                    videoGrid.appendChild(video);
+                });
+            }
+        }
+
+        function removeVideos(section) {
+            const videoGrid = document.getElementById(`${section}-videos`);
+            if (videoGrid) {
+                videoGrid.innerHTML = '';
+            }
+        }
+
+        function copyReferralCode() {
+            const referralCode = document.getElementById('referralButton').innerText;
+            const inviteLink = `${window.location.origin}/invite/${referralCode}`;
+            navigator.clipboard.writeText(inviteLink).then(() => {
+                alert('Referral link copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy referral link: ', err);
+            });
+        }
+
+        function fetchInviteDetails() {
+            fetch('/getInviteDetails')
+                .then(response => response.json())
+                .then(data => {
+                    const inviteListDetails = document.getElementById('inviteListDetails');
+                    inviteListDetails.innerHTML = ''; // Clear previous content
+
+                    if (data.length === 0) {
+                        inviteListDetails.innerHTML = '<p>No invites found.</p>';
+                        return;
+                    }
+
+                    data.forEach(invite => {
+                        const li = document.createElement('li');
+                        li.textContent = `${invite.inviter} invited ${invite.invitee} and now has ${invite.invites} invites`;
+                        inviteListDetails.appendChild(li);
+                    });
+                })
+                .catch(err => {
+                    console.error('Failed to fetch invite details: ', err);
+                });
+        }
+
+        function updateInviteSummary() {
+            const invitesRequired = {
+                'tier-1': 4,
+                'tier-2': 10,
+                'tier-3': 20,
+                'tier-4': 40,
+                'tier-5': 80
+            };
+
+            const currentInvites = parseInt(document.getElementById('invites').innerText, 10);
+            const currentTier = document.getElementById('tier').innerText;
+
+            let neededInvites = 0;
+            let nextTier = 'Tier 1';
+            if (currentTier === 'None') {
+                neededInvites = invitesRequired['tier-1'] - currentInvites;
+            } else {
+                const currentTierNumber = parseInt(currentTier.split(' ')[1]);
+                nextTier = `Tier ${currentTierNumber + 1}`;
+                neededInvites = invitesRequired[`tier-${currentTierNumber + 1}`] - currentInvites;
+            }
+
+            document.getElementById('currentInvites').innerText = currentInvites;
+            document.getElementById('neededInvites').innerText = neededInvites;
+
+            // Update the invite summary text
+            document.querySelector('.invite-summary p').innerText = `You have ${currentInvites} invites, you need ${neededInvites} more invites to reach ${nextTier}.`;
+
+            // Update the invite link
+            const referralCode = document.getElementById('referralButton').innerText;
+            const inviteLink = `${window.location.origin}/invite/${referralCode}`;
+            document.getElementById('inviteLink').innerText = inviteLink;
+        }
+
+        function copyInviteLink() {
+            const inviteLink = document.getElementById('inviteLink').innerText;
+            navigator.clipboard.writeText(inviteLink).then(() => {
+                alert('Invite link copied to clipboard');
+            }).catch(err => {
+                console.error('Failed to copy invite link: ', err);
+            });
+        }
+
+        // Fetch and display the referral info (referral code and invited users count)
+        fetch('/getReferralInfo')
+            .then(response => {
+                if (response.status === 401) {
+                    // User is not logged in, redirect to login page
+                    window.location.href = 'login_register';
+                    return;
+                }
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Fetched referral info:', data);
+                if (data.referral_code) {
+                    document.getElementById('referralButton').innerText = data.referral_code;
+                }
+                if (data.invited_users_count !== undefined) {
+                    document.getElementById('invitedUsersCount').innerText = data.invited_users_count;
+                }
+                // Display user info in the Info section
+                document.getElementById('username').innerText = data.username;
+                document.getElementById('userId').innerText = data.userId;
+                document.getElementById('tier').innerText = data.tier;
+                document.getElementById('invites').innerText = data.invited_users_count; // Use the actual invited users count
+
+                // Update the username in the "Get More Videos" section
+                document.getElementById('usernamePlaceholder').innerText = data.username;
+
+                // Update the invite summary
+                updateInviteSummary();
+            })
+            .catch(err => {
+                console.error('Failed to fetch referral info: ', err);
+            });
+
+        // Check the URL hash and show the corresponding content
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showContent(hash);
+            } else {
+                showContent('free-preview'); // Default to free-preview
+            }
+        });
+    </script>
+
+</body><div id="detach-button-host" style="--opera-video-toolbar-button-color-contrasting: hsla(0, 0%, 0%, 1); top: 233.875px; left: 634px;"></div><div class="hidden" id="qr-host" style="--opera-video-toolbar-button-color-contrasting: hsla(0, 0%, 0%, 1);"></div></html>
